@@ -18,8 +18,15 @@ class Enconder
   def apply_conditions element
     if new_element? element
       add_new_element element
+    else
+      update_index element
     end
 
+  end
+
+  def update_index element
+    position = @values.index element
+    @index << position
   end
 
   def new_element? element
@@ -32,3 +39,9 @@ class Enconder
   end
 
 end
+
+
+codificar = Enconder.new 'este se repite mucho y cuando algo se repite mucho no me gusta'
+codificar.run_through_elements
+puts codificar.index
+puts codificar.values

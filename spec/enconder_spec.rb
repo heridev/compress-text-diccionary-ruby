@@ -23,4 +23,12 @@ describe Enconder do
     encoder.index.should include 0
   end
 
+  it 'should update index array if already exist element' do
+    encoder.add_new_element 'this'
+    encoder.values.should include 'this'
+    encoder.index.should include(0)
+    encoder.update_index 'this'
+    encoder.index.should include(0, 0)
+  end
+
 end
